@@ -74,6 +74,7 @@ swiftmailer:
 
 
 fos_rest:
+    disable_csrf_role: ROLE_API
     allowed_methods_listener: true
     view:
         mime_types:

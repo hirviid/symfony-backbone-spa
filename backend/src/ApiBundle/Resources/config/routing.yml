@@ -3,3 +3,17 @@ api.default.index:
     defaults: { _controller: ApiBundle:Default:index }
     requirements:
         _method: GET
+
+
+api.todo.all:
+    path:     /todos
+    defaults: { _controller: ApiBundle:Todo:all, _format: ~ }
+    requirements:
+        _method: GET
+
+api.todo.get:
+    path:     /todos/{id}
+    defaults: { _controller: ApiBundle:Todo:get,  _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"

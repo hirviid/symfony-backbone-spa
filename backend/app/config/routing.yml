@@ -2,6 +2,6 @@ api:
   resource: "@ApiBundle/Resources/config/routing.yml"
   prefix:   /api
 
-#web:
-#  resource: "@WebBundle/Resources/config/routing.yml"
-#  prefix:   /
+web:
+  resource: "@WebBundle/Resources/config/routing.yml"
+  prefix:   /

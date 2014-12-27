@@ -4,22 +4,15 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
+
     <parameters>
-        <parameter key="acme.demo.example.class">Acme\DemoBundle\Example</parameter>
+        <parameter key="web.listener.redirect_to_index.class">WebBundle\EventListener\RedirectToIndexListener</parameter>
     </parameters>
 
     <services>
-        <service id="acme.demo.example" class="%acme.demo.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
-            <call method="setService">
-                <argument type="service" id="service_id" />
-            </call>
-            <tag name="twig.extension" />
-            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" />
+        <service id="web.listener.redirect_to_index" class="%web.listener.redirect_to_index.class%">
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="-255"/>
         </service>
     </services>
-    -->
+
 </container>

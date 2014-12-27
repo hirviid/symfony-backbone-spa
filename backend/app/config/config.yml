@@ -72,6 +72,25 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+
+fos_rest:
+    allowed_methods_listener: true
+    view:
+        mime_types:
+            json:
+                - 'application/json'
+                - 'application/json;version=1.0'
+                - 'application/json;version=1.1'
+    format_listener:
+        rules:
+              -
+                  path: ^/api
+                  priorities: [ html, json, xml ]
+                  fallback_format: ~
+                  prefer_extension: true
+        media_type:
+            version_regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+
 tbbc_rest_util:
     error:
         use_bundled_factories: true

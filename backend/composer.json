@@ -17,7 +17,12 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "friendsofsymfony/rest-bundle": "~1.4",
+        "jms/serializer-bundle": "0.13.*",
+        "nelmio/api-doc-bundle": "~2.7",
+        "tbbc/rest-util": "~1.0",
+        "tbbc/rest-util-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

@@ -71,3 +71,31 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+tbbc_rest_util:
+    error:
+        use_bundled_factories: true
+#        exception_mapping:
+#            FormErrorException:
+#                class: "Tbbc\\RestUtilBundle\\Error\\Exception\\FormErrorException"
+#                factory: tbbc_rest_util_form_error
+#                http_status_code: 400
+#                error_code: 400101
+#                error_message: "Invalid input"
+#            AccessDeniedException:
+#                class: "Symfony\\Component\\Security\\Core\\AccessDeniedException"
+#                factory: default
+#                http_status_code: 401
+#                error_code: 401001
+#                error_message: "Access denied"
+#            CustomException:
+#                class: "My\\ApiBundle\\Exception\\CustomException"
+#                factory: my_api_custom
+#                http_status_code: 501
+#                error_code: 501001
+#            Exception:
+#                class: "\\Exception"
+#                factory: default
+#                http_status_code: 500
+#                error_code: 501203
+#                error_message: "Server error"

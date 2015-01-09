@@ -6,14 +6,20 @@
 
     <parameters>
         <parameter key="time_slot_repository.in_memory.class">CoreDomainBundle\Repository\InMemoryTimeSlotRepository</parameter>
+        <parameter key="time_slot_repository.yaml.class">CoreDomainBundle\Repository\YamlTimeSlotRepository</parameter>
     </parameters>
 
     <services>
         <!-- Exposed Services -->
-        <service id="time_slot_repository" alias="time_slot_repository.in_memory"></service>
+        <service id="time_slot_repository" alias="time_slot_repository.yaml"></service>
 
         <!-- Concrete Implementations -->
         <service id="time_slot_repository.in_memory" public="false" class="%time_slot_repository.in_memory.class%"></service>
+
+        <service id="time_slot_repository.yaml" class="%time_slot_repository.yaml.class%" public="false">
+            <argument>%kernel.cache_dir%/time_slots.yml</argument>
+        </service>
+
     </services>
 
 </container>

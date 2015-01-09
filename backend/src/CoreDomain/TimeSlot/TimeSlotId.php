@@ -22,4 +22,9 @@ class TimeSlotId
     {
         return $this->value;
     }
+
+    public function isEqualTo(TimeSlotId $timeSlotId)
+    {
+        return $this->getValue() === $timeSlotId->getValue();
+    }
 } 

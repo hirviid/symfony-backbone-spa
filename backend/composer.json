@@ -25,7 +25,9 @@
         "tbbc/rest-util-bundle": "~1.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "mikey179/vfsStream": "1.3.*@dev",
+        "phpunit/phpunit": "4.4.*"
     },
     "scripts": {
         "post-root-package-install": [

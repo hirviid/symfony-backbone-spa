@@ -4,19 +4,6 @@ api.default.index:
     requirements:
         _method: GET
 
-api.todo.all:
-    path:     /todos
-    defaults: { _controller: ApiBundle:Todo:all, _format: ~ }
-    requirements:
-        _method: GET
-
-api.todo.get:
-    path:     /todos/{id}
-    defaults: { _controller: ApiBundle:Todo:get,  _format: ~ }
-    requirements:
-        _method: GET
-        id: "\d+"
-
 api.time_slot.all:
     pattern:  /timeslots.{_format}
     defaults: { _controller: ApiBundle:TimeSlot:all, _format: ~ }

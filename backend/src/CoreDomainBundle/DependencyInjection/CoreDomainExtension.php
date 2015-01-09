@@ -1,6 +1,6 @@
 <?php
 
-namespace WebBundle\DependencyInjection;
+namespace CoreDomainBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class WebExtension extends Extension
+class CoreDomainExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -24,7 +24,7 @@ class WebExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         foreach ($config as $key => $parameter) {
-            $container->setParameter('web.'.$key, $parameter);
+            $container->setParameter('core_domain.'.$key, $parameter);
         }
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

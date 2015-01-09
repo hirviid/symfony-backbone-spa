@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Tbbc\RestUtilBundle\TbbcRestUtilBundle(),
 
+            new CoreDomainBundle\CoreDomainBundle(),
             new ApiBundle\ApiBundle(),
             new WebBundle\WebBundle(),
         );

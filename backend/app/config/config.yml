@@ -77,6 +77,7 @@ fos_rest:
     disable_csrf_role: ROLE_API
     allowed_methods_listener: true
     view:
+        view_response_listener: force
         mime_types:
             json:
                 - 'application/json'
@@ -87,10 +88,13 @@ fos_rest:
               -
                   path: ^/api
                   priorities: [ html, json, xml ]
-                  fallback_format: ~
+                  fallback_format: json
                   prefer_extension: true
         media_type:
             version_regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+
+sensio_framework_extra:
+    view:    { annotations: false }
 
 tbbc_rest_util:
     error:

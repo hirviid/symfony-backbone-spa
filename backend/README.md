@@ -3,7 +3,8 @@ Resources
 
 - http://friendsofsymfony.github.io/slides/rest-dans-le-monde-symfony.html
 - http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/
-
+- http://backbonetutorials.com/seo-for-single-page-apps/
+- http://www.brombone.com/
 
 Bundles
 -------------------------------------

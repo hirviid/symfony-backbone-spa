@@ -96,6 +96,13 @@ fos_rest:
 sensio_framework_extra:
     view:    { annotations: false }
 
+jms_serializer:
+    metadata:
+        directories:
+            CoreDomain:
+                namespace_prefix: "CoreDomain"
+                path: "@ApiBundle/Resources/config/serializer/"
+
 tbbc_rest_util:
     error:
         use_bundled_factories: true

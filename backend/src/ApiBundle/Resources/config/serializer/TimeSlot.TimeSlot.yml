@@ -1,0 +1,12 @@
+CoreDomain\TimeSlot\TimeSlot:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            inline: true
+        startTime:
+            expose: true
+            serialized_name: start_time
+        endTime:
+            expose: true
+            serialized_name: end_time

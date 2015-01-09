@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b33b978394f530ca99674e4087e97659",
+    "hash": "c15188675d020dc5ffb64c6295ad4ebd",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3170,6 +3170,53 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2014-12-07 18:30:52"
+        },
+        {
+            "name": "willdurand/rest-extra-bundle",
+            "version": "v0.0.2",
+            "target-dir": "Bazinga/Bundle/RestExtraBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/BazingaRestExtraBundle.git",
+                "reference": "343a5022b07bb8d1bf4844f3a4d8c69e07b50302"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/BazingaRestExtraBundle/zipball/343a5022b07bb8d1bf4844f3a4d8c69e07b50302",
+                "reference": "343a5022b07bb8d1bf4844f3a4d8c69e07b50302",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": "~2.1",
+                "willdurand/negotiation": "~1.0"
+            },
+            "require-dev": {
+                "symfony/browser-kit": "~2.1",
+                "symfony/finder": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bazinga\\Bundle\\RestExtraBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "This bundle provides extra features for your REST APIs built using Symfony2.",
+            "keywords": [
+                "api",
+                "rest"
+            ],
+            "time": "2013-11-13 10:05:46"
         }
     ],
     "aliases": [],

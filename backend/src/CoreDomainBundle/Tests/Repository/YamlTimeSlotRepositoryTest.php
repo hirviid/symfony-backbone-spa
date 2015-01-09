@@ -16,6 +16,12 @@ use CoreDomainBundle\Tests\TestCase;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 
+/**
+ * Unit Test Example
+ *
+ * Class YamlTimeSlotRepositoryTest
+ * @package CoreDomainBundle\Tests\Repository
+ */
 class YamlTimeSlotRepositoryTest extends TestCase
 {
 

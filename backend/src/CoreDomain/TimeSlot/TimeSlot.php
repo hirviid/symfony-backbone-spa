@@ -17,11 +17,16 @@ class TimeSlot
 
     private $endTime;
 
-    public function __construct(TimeSlotId $id, \DateTime $startTime, \DateTime $endTime)
+    private function __construct(TimeSlotId $id, \DateTime $startTime, \DateTime $endTime)
     {
         $this->id        = $id;
         $this->startTime = $startTime;
         $this->endTime  = $endTime;
+    }
+
+    public static function track(TimeSlotId $id, \DateTime $startTime, \DateTime $endTime)
+    {
+        return new self($id, $startTime, $endTime);
     }
 
     public function getId()

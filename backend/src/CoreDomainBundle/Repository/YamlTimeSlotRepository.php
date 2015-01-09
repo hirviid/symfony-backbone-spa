@@ -48,7 +48,7 @@ class YamlTimeSlotRepository implements TimeSlotRepository
     {
         $timeSlots = array();
         foreach ($this->getRows() as $row) {
-            $timeSlots[] = new TimeSlot(
+            $timeSlots[] = TimeSlot::Track(
                 new TimeSlotId($row['id']),
                 new \DateTime($row['start_time']),
                 new \DateTime($row['end_time'])

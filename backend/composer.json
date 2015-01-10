@@ -22,7 +22,9 @@
         "jms/serializer-bundle": "0.13.*",
         "nelmio/api-doc-bundle": "~2.7",
         "tbbc/rest-util": "~1.0",
-        "tbbc/rest-util-bundle": "~1.0"
+        "tbbc/rest-util-bundle": "~1.0",
+        "snc/redis-bundle": "1.1.x-dev",
+        "predis/predis": "0.8.x-dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

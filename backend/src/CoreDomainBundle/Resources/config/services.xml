@@ -18,6 +18,8 @@
 
         <service id="time_slot_repository.yaml" class="%time_slot_repository.yaml.class%" public="false">
             <argument>%kernel.cache_dir%/time_slots.yml</argument>
+            <argument type="service" id="snc_redis.default" />
+            <argument type="service" id="debug.stopwatch" />
         </service>
 
     </services>

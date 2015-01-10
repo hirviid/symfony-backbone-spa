@@ -22,3 +22,9 @@ api.time_slot.post:
     requirements:
         _method: POST
 
+api.time_slot.delete:
+    pattern:  /timeslots/{id}.{_format}
+    defaults: { _controller: ApiBundle:TimeSlot:deleteTimeSlot, _format: ~ }
+    requirements:
+        _method: DELETE
+

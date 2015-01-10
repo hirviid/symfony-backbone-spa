@@ -10,6 +10,8 @@ namespace ApiBundle\Controller;
 
 use ApiBundle\Form\TimeSlotType;
 
+use CoreDomain\TimeSlot\TimeSlotId;
+use Doctrine\ORM\EntityNotFoundException;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View;
@@ -17,6 +19,7 @@ use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -97,5 +100,41 @@ class TimeSlotController extends Controller
         return array(
             'form' => $form
         );
+    }
+
+    /**
+     * Delete a time slot
+     *
+     * @ApiDoc(
+     *   resource = true,
+     *   requirements= {
+     *      {
+     *          "name"="id",
+     *          "dataType"="integer",
+     *          "description"="the time slot's id"
+     *      }
+     *   },
+     *   statusCodes = {
+     *     204 = "Returned when successful",
+     *     404 = "Returned when the time slot was not found"
+     *   }
+     * )
+     *
+     * @Rest\View(statusCode=204)
+     *
+     * @param Request $request
+     * @param $id
+     * @throws HttpException
+     */
+    public function deleteTimeSlotAction(Request $request, $id)
+    {
+        $repository = $this->get('time_slot_repository');
+        $timeSlot = $repository->find(new TimeSlotId($id));
+
+        if (null === $timeSlot) {
+            throw new HttpException(404);
+        }
+
+        $repository->remove($timeSlot);
     }
 }

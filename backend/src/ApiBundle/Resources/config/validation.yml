@@ -1,0 +1,6 @@
+ApiBundle\Commands\TrackTimeCommand:
+  properties:
+    startedAt:
+      - NotBlank: ~
+    stoppedAt:
+      - NotBlank: ~

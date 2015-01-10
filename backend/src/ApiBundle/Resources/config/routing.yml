@@ -9,3 +9,16 @@ api.time_slot.all:
     defaults: { _controller: ApiBundle:TimeSlot:all, _format: ~ }
     requirements:
         _method: GET
+
+api.time_slot.new:
+    pattern:  /timeslots/new.{_format}
+    defaults: { _controller: ApiBundle:TimeSlot:newTimeSlot, _format: ~ }
+    requirements:
+        _method: GET
+
+api.time_slot.post:
+    pattern:  /timeslots.{_format}
+    defaults: { _controller: ApiBundle:TimeSlot:postTimeSlot, _format: ~ }
+    requirements:
+        _method: POST
+

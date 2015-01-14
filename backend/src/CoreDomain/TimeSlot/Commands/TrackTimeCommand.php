@@ -6,10 +6,11 @@
  * Time: 23:58
  */
 
-namespace ApiBundle\Commands;
+namespace CoreDomain\TimeSlot\Commands;
 
+use DDD\Commands\CommandInterface;
 
-class TrackTimeCommand 
+class TrackTimeCommand implements CommandInterface
 {
     /**
      * @var \DateTime

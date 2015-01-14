@@ -1,4 +1,4 @@
-ApiBundle\Commands\TrackTimeCommand:
+CoreDomain\TimeSlot\Commands\TrackTimeCommand:
   properties:
     startedAt:
       - NotBlank: ~

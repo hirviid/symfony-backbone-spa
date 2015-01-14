@@ -6,25 +6,26 @@
  * Time: 9:27
  */
 
-namespace ApiBundle\Form\Handler;
+namespace CoreDomainBundle\Form\Handler;
 
 
 use CoreDomain\TimeSlot\TimeSlot;
 use CoreDomain\TimeSlot\TimeSlotId;
 use CoreDomain\TimeSlot\TimeSlotRepository;
+use DDD\Commands\CommandHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class TrackTimeFormHandler
 {
-    private $repository;
+    private $commandHandler;
 
-    public function __construct(TimeSlotRepository $repository)
+    public function __construct(CommandHandlerInterface $commandHandler)
     {
-        $this->repository = $repository;
+        $this->commandHandler = $commandHandler;
     }
 
-    public function Handle(FormInterface $form, Request $request)
+    public function handle(FormInterface $form, Request $request)
     {
         if (!$request->isMethod('POST')) {
             return false;
@@ -37,12 +38,8 @@ class TrackTimeFormHandler
         }
 
         $trackTimeCommand = $form->getData();
-        $timeSlot = TimeSlot::track(
-            new TimeSlotId(trim(self::GUID(), '{}')),
-            new \DateTime($trackTimeCommand->startedAt),
-            new \DateTime($trackTimeCommand->stoppedAt)
-        );
-        $this->repository->add($timeSlot);
+        $this->commandHandler->handle($trackTimeCommand);
+
         return true;
     }
 

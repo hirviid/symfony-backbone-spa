@@ -7,19 +7,35 @@
     <parameters>
         <parameter key="time_slot_repository.in_memory.class">CoreDomainBundle\Repository\InMemoryTimeSlotRepository</parameter>
         <parameter key="time_slot_repository.yaml.class">CoreDomainBundle\Repository\YamlTimeSlotRepository</parameter>
+        <parameter key="form.track_time.class">CoreDomainBundle\Form\TrackTimeType</parameter>
+        <parameter key="form_handler.track_time.class">CoreDomainBundle\Form\Handler\TrackTimeFormHandler</parameter>
+        <parameter key="command_handler.track_time.class">CoreDomain\TimeSlot\Commands\TrackTimeCommandHandler</parameter>
     </parameters>
 
     <services>
         <!-- Exposed Services -->
         <service id="time_slot_repository" alias="time_slot_repository.yaml"></service>
 
+        <service id="form.track_time" class="%form.track_time.class%">
+            <tag name="form.type" alias="track_time" />
+        </service>
+
+        <service id="form_handler.track_time" class="%form_handler.track_time.class%">
+            <argument type="service" id="command_handler.track_time"/>
+        </service>
+
+        <service id="command_handler.track_time" class="%command_handler.track_time.class%">
+            <argument type="service" id="time_slot_repository"/>
+        </service>
+
+
         <!-- Concrete Implementations -->
         <service id="time_slot_repository.in_memory" public="false" class="%time_slot_repository.in_memory.class%"></service>
 
         <service id="time_slot_repository.yaml" class="%time_slot_repository.yaml.class%" public="false">
             <argument>%kernel.cache_dir%/time_slots.yml</argument>
-            <argument type="service" id="snc_redis.default" />
-            <argument type="service" id="debug.stopwatch" />
+            <!--<argument type="service" id="snc_redis.default" />-->
+            <!--<argument type="service" id="debug.stopwatch" />-->
         </service>
 
     </services>

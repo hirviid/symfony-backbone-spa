@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiBundle\Form;
+namespace CoreDomainBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class TimeSlotType extends AbstractType
+class TrackTimeType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -27,7 +27,7 @@ class TimeSlotType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-                'data_class' => 'ApiBundle\Commands\TrackTimeCommand',
+                'data_class' => 'CoreDomain\TimeSlot\Commands\TrackTimeCommand',
                 'csrf_protection' => false,
             ));
     }
@@ -37,6 +37,6 @@ class TimeSlotType extends AbstractType
      */
     public function getName()
     {
-        return 'time_slot';
+        return 'track_time';
     }
 }

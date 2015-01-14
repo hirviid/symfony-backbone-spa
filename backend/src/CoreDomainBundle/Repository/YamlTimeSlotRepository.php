@@ -28,7 +28,8 @@ class YamlTimeSlotRepository implements TimeSlotRepository
     {
         $this->filename = $filename;
 
-        (new Filesystem())->touch($this->filename);
+        $fs = new Filesystem();
+        $fs->touch($this->filename);
 
         $this->cacheDriver = $cacheDriver;
         $this->stopwatch = $stopwatch;

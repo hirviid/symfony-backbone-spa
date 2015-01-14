@@ -8,14 +8,13 @@
 
 namespace ApiBundle\Controller;
 
-use ApiBundle\Form\TimeSlotType;
-
 use CoreDomain\TimeSlot\TimeSlotId;
 use Doctrine\ORM\EntityNotFoundException;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View;
 
+use FOS\RestBundle\View\ViewHandler;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -89,12 +88,12 @@ class TimeSlotController extends Controller
      */
     public function postTimeSlotAction(Request $request)
     {
-        $form = $this->createForm(new TimeSlotType());
+        $form = $this->createForm('track_time');
 
-        $formHandler = $this->get('form_handler.track_time');
+        $handler = $this->get('form_handler.track_time');
 
-        if ($formHandler->handle($form, $request)) {
-            return View::createRouteRedirect('api.time_slot.all');
+        if ($handler->handle($form, $request)) {
+            return $this->get('fos_rest.view_handler')->handle(View::create(null, 201));
         }
 
         return array(

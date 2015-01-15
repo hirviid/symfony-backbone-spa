@@ -6,7 +6,7 @@
  * Time: 11:24
  */
 
-namespace ApiBundle\Controller;
+namespace Ui\ApiBundle\Controller;
 
 use CoreDomain\TimeSlot\TimeSlot;
 use CoreDomain\TimeSlot\TimeSlotId;

@@ -6,7 +6,7 @@
  * Time: 9:27
  */
 
-namespace CoreDomainBundle\Form\Handler;
+namespace Ui\SharedBundle\Form\Handler;
 
 
 use CoreDomain\TimeSlot\TimeSlot;

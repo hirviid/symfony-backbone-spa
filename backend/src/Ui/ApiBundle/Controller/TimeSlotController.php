@@ -6,7 +6,7 @@
  * Time: 8:13
  */
 
-namespace ApiBundle\Controller;
+namespace Ui\ApiBundle\Controller;
 
 use CoreDomain\TimeSlot\TimeSlotId;
 use Doctrine\ORM\EntityNotFoundException;
@@ -61,7 +61,7 @@ class TimeSlotController extends Controller
      */
     public function newTimeSlotAction(Request $request)
     {
-        return $this->createForm(new TimeSlotType());
+        return $this->createForm('track_time');
     }
 
     /**

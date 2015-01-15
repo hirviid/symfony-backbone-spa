@@ -24,7 +24,8 @@ class AppKernel extends Kernel
             new Snc\RedisBundle\SncRedisBundle(),
 
             new CoreDomainBundle\CoreDomainBundle(),
-            new ApiBundle\ApiBundle(),
+            new Ui\SharedBundle\SharedBundle(),
+            new Ui\ApiBundle\ApiBundle(),
             new WebBundle\WebBundle(),
         );
 

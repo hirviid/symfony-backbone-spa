@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiBundle\DependencyInjection;
+namespace Ui\SharedBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class ApiExtension extends Extension
+class SharedExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -24,7 +24,7 @@ class ApiExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         foreach ($config as $key => $parameter) {
-            $container->setParameter('api.'.$key, $parameter);
+            $container->setParameter('ui.'.$key, $parameter);
         }
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

@@ -8,7 +8,7 @@
 
 namespace CoreDomain\TimeSlot\Commands;
 
-use DDD\Commands\CommandInterface;
+use Hirviid\DDD\Commands\CommandInterface;
 
 class TrackTimeCommand implements CommandInterface
 {

@@ -11,8 +11,8 @@ namespace CoreDomain\TimeSlot\Commands;
 use CoreDomain\TimeSlot\TimeSlot;
 use CoreDomain\TimeSlot\TimeSlotId;
 use CoreDomain\TimeSlot\TimeSlotRepository;
-use DDD\Commands\CommandHandlerInterface;
-use DDD\Commands\CommandInterface;
+use Hirviid\DDD\Commands\CommandHandlerInterface;
+use Hirviid\DDD\Commands\CommandInterface;
 
 class TrackTimeCommandHandler implements CommandHandlerInterface
 {

@@ -1,5 +1,0 @@
-web.default.index:
-    path:     /
-    defaults: { _controller: WebBundle:Default:index }
-    requirements:
-        _method: GET

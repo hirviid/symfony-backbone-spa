@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             new CoreDomainBundle\CoreDomainBundle(),
             new Ui\SharedBundle\SharedBundle(),
             new Ui\ApiBundle\ApiBundle(),
-            new WebBundle\WebBundle(),
+            new Hirviid\WebBundle\WebBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

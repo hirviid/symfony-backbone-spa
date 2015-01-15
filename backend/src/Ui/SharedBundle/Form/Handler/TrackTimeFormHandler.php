@@ -12,7 +12,7 @@ namespace Ui\SharedBundle\Form\Handler;
 use CoreDomain\TimeSlot\TimeSlot;
 use CoreDomain\TimeSlot\TimeSlotId;
 use CoreDomain\TimeSlot\TimeSlotRepository;
-use DDD\Commands\CommandHandlerInterface;
+use Hirviid\DDD\Commands\CommandHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 

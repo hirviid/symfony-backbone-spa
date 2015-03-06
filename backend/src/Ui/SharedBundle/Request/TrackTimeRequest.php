@@ -9,12 +9,19 @@ namespace Ui\SharedBundle\Request;
 
 
 use CoreDomain\TimeSlot\Commands\TrackTimeCommand;
+use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
+use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TrackTimeRequest
 {
     private $options;
 
+    /**
+     * @param array $options
+     * @throws MissingOptionsException
+     * @throws InvalidOptionsException
+     */
     public function __construct(array $options = array())
     {
         $resolver = new OptionsResolver();

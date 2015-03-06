@@ -19,6 +19,7 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
@@ -102,6 +103,12 @@ class TimeSlotController extends Controller
             }
 
         } catch (MissingOptionsException $e) {
+
+            return array(
+                'errorMessage' => $e->getMessage()
+            );
+
+        } catch (InvalidOptionsException $e) {
 
             return array(
                 'errorMessage' => $e->getMessage()

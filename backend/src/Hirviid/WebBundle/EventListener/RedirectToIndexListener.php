@@ -30,7 +30,7 @@ class RedirectToIndexListener
         $pathInfo = $request->getPathInfo();
 
         // Only allow routes that start with /api through
-        if (1 === preg_match('/^\/api/', $pathInfo)) {
+        if (1 === preg_match('/^\/api|_/', $pathInfo)) {
             return;
         }
 

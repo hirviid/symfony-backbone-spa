@@ -47,9 +47,9 @@ class AppKernel extends Kernel
 
     public function getCacheDir()
     {
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return sys_get_temp_dir() . '/cache/' .  $this->environment;
-        }
+//        if (in_array($this->environment, array('dev', 'test'))) {
+//            return sys_get_temp_dir() . '/cache/' .  $this->environment;
+//        }
 
         return parent::getCacheDir();
     }

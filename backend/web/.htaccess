@@ -48,6 +48,10 @@ DirectoryIndex public/index.html
     RewriteCond %{REQUEST_URI} ^/api
     RewriteRule .? %{ENV:BASE}/app.php [L]
 
+    # Only send paths matching /api/ to the Symfony app
+    RewriteCond %{REQUEST_URI} ^/_wdt
+    RewriteRule .? %{ENV:BASE}/app.php [L]
+
     # Rewrite all other queries to the front controller.
      RewriteRule .? %{ENV:BASE}/public/index.html [L]
 #    RewriteRule .? %{ENV:BASE}/app.php [L]

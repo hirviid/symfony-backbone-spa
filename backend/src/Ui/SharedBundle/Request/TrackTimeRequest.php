@@ -44,7 +44,12 @@ class TrackTimeRequest
                 'stoppedAt'
             ));
 
-        $resolver->setNormalizer('startedAt', function ($options, $value) {
+        $resolver->setAllowedTypes(array(
+                'startedAt' => array('string'),
+                'stoppedAt' => array('string')
+            ));
+
+        /*$resolver->setNormalizer('startedAt', function ($options, $value) {
                 if (!$value instanceof \DateTime) {
                     $value = new \DateTime($value);
                 }
@@ -56,6 +61,6 @@ class TrackTimeRequest
                     $value = new \DateTime($value);
                 }
                 return $value;
-            });
+            });*/
     }
 } 

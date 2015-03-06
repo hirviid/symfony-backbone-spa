@@ -22,6 +22,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
+use Ui\SharedBundle\Request\TrackTimeRequest;
 
 class TimeSlotController extends Controller
 {
@@ -90,23 +91,30 @@ class TimeSlotController extends Controller
     public function postTimeSlotAction(Request $request)
     {
 
-        $handler = $this->get('form_handler.track_time');
-
         // 2 ways of handling a form:
+
         // ---> METHOD 1 (explicit - optionsResolver component)
         try {
-            if ($handler->handle($request)) {
+
+            if ($trackTimeRequest = new TrackTimeRequest($request->request->get('track_time'))) {
+                $this->get('command_handler.track_time')->handle($trackTimeRequest->getData());
                 return $this->get('fos_rest.view_handler')->handle(View::create(null, 201));
             }
+
         } catch (MissingOptionsException $e) {
+
             return array(
                 'errorMessage' => $e->getMessage()
             );
+
         }
 
         // ---> METHOD 2 (implicit - form component)
+        $handler = $this->get('form_handler.track_time');
+
         $form = $this->createForm('track_time');
-        if ($handler->handleForm($form, $request)) {
+
+        if ($handler->handle($form, $request)) {
             return $this->get('fos_rest.view_handler')->handle(View::create(null, 201));
         }
 

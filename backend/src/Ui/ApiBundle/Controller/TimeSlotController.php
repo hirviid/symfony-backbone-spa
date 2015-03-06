@@ -19,6 +19,7 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -88,11 +89,24 @@ class TimeSlotController extends Controller
      */
     public function postTimeSlotAction(Request $request)
     {
-        $form = $this->createForm('track_time');
 
         $handler = $this->get('form_handler.track_time');
 
-        if ($handler->handle($form, $request)) {
+        // 2 ways of handling a form:
+        // ---> METHOD 1 (explicit - optionsResolver component)
+        try {
+            if ($handler->handle($request)) {
+                return $this->get('fos_rest.view_handler')->handle(View::create(null, 201));
+            }
+        } catch (MissingOptionsException $e) {
+            return array(
+                'errorMessage' => $e->getMessage()
+            );
+        }
+
+        // ---> METHOD 2 (implicit - form component)
+        $form = $this->createForm('track_time');
+        if ($handler->handleForm($form, $request)) {
             return $this->get('fos_rest.view_handler')->handle(View::create(null, 201));
         }
 

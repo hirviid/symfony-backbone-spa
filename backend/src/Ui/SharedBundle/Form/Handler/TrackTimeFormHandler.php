@@ -15,6 +15,7 @@ use CoreDomain\TimeSlot\TimeSlotRepository;
 use Hirviid\DDD\Commands\CommandHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Ui\SharedBundle\Request\TrackTimeRequest;
 
 class TrackTimeFormHandler
 {
@@ -25,7 +26,20 @@ class TrackTimeFormHandler
         $this->commandHandler = $commandHandler;
     }
 
-    public function handle(FormInterface $form, Request $request)
+    public function handle(Request $request)
+    {
+        if (!$request->isMethod('POST')) {
+            return false;
+        }
+
+        $trackTimeRequest = new TrackTimeRequest($request->request->get('track_time'));
+
+        $this->commandHandler->handle($trackTimeRequest->getData());
+
+        return true;
+    }
+
+    public function handleForm(FormInterface $form, Request $request)
     {
         if (!$request->isMethod('POST')) {
             return false;

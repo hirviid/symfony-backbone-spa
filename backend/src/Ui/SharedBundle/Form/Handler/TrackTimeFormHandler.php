@@ -21,7 +21,7 @@ class TrackTimeFormHandler
         $this->commandHandler = $commandHandler;
     }
 
-    public function handleForm(FormInterface $form, Request $request)
+    public function handle(FormInterface $form, Request $request)
     {
         if (!$request->isMethod('POST')) {
             return false;

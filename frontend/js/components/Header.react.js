@@ -1,5 +1,6 @@
 var React = require('react');
 var TimelogTextInput = require('./TimelogTextInput.react');
+var TimelogActions = require('../actions/TimelogActions');
 
 var Header = React.createClass({
 
@@ -24,11 +25,8 @@ var Header = React.createClass({
    * in different ways.
    * @param {string} text
    */
-  _onSave: function(text) {
-    // if (text.trim()){
-      // TodoActions.create(text);
-    // }
-
+  _onSave: function(description, start, end) {
+    TimelogActions.create(description, start, end);
   }
 
 });

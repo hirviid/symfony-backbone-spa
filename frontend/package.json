@@ -9,7 +9,8 @@
     "object-assign": "^1.0.0",
     "react": "^0.12.0",
     "react-bootstrap-datetimepicker": "0.0.9",
-    "moment": "~2.9.0"
+    "moment": "~2.9.0",
+    "react-date-picker": "~1.4.3"
   },
   "devDependencies": {
     "browserify": "^6.2.0",

@@ -1,5 +1,7 @@
 CoreDomain\TimeSlot\Commands\TrackTimeCommand:
   properties:
+    description:
+      - NotBlank: ~
     startedAt:
       - NotBlank: ~
     stoppedAt:

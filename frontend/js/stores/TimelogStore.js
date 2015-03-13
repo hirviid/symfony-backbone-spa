@@ -2,7 +2,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var TimelogConstants = require('../constants/TimelogConstants');
 var assign = require('object-assign');
-
+var fetchingAll = null;
 var CHANGE_EVENT = 'change';
 
 var _timelogs = {};
@@ -18,17 +18,21 @@ function create(description, start, end) {
 }
 
 var TimelogStore = assign({}, EventEmitter.prototype, {
-	emitChange: function() {
+	  emitChange: function() {
 	    this.emit(CHANGE_EVENT);
   	},
 
   	getAll: function() {
+      if (fetchingAll === null) {
+        fetchingAll = window.request({url: 'http://hirviid.dev/api/timeslots', method: 'GET'}); 
+      }
+      
     	return _timelogs;
   	},
 
-  /**
-   * @param {function} callback
-   */
+   /**
+    * @param {function} callback
+    */
   	addChangeListener: function(callback) {
     	this.on(CHANGE_EVENT, callback);
   	},

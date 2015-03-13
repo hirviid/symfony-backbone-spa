@@ -4,9 +4,11 @@ CoreDomain\TimeSlot\TimeSlot:
         id:
             expose: true
             inline: true
+        description:
+            expose: true
         startTime:
             expose: true
-            serialized_name: start_time
+#            serialized_name: start_time
         endTime:
             expose: true
-            serialized_name: end_time
+#            serialized_name: end_time

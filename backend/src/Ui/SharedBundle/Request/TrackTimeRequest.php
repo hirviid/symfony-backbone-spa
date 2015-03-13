@@ -34,6 +34,7 @@ class TrackTimeRequest
     public function getData()
     {
         $command = new TrackTimeCommand();
+        $command->description = $this->options['description'];
         $command->startedAt = $this->options['startedAt'];
         $command->stoppedAt = $this->options['stoppedAt'];
         return $command;
@@ -48,10 +49,12 @@ class TrackTimeRequest
 
         $resolver->setRequired(array(
                 'startedAt',
-                'stoppedAt'
+                'stoppedAt',
+                'description'
             ));
 
         $resolver->setAllowedTypes(array(
+                'description' => array('string'),
                 'startedAt' => array('string'),
                 'stoppedAt' => array('string')
             ));

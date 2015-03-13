@@ -13,25 +13,33 @@ class TimeSlot
 {
     private $id;
 
+    private $description;
+
     private $startTime;
 
     private $endTime;
 
-    private function __construct(TimeSlotId $id, \DateTime $startTime, \DateTime $endTime)
+    private function __construct(TimeSlotId $id, $description, \DateTime $startTime, \DateTime $endTime)
     {
         $this->id        = $id;
         $this->startTime = $startTime;
         $this->endTime  = $endTime;
+        $this->description  = $description;
     }
 
-    public static function track(TimeSlotId $id, \DateTime $startTime, \DateTime $endTime)
+    public static function track(TimeSlotId $id, $description, \DateTime $startTime, \DateTime $endTime)
     {
-        return new self($id, $startTime, $endTime);
+        return new self($id, $description, $startTime, $endTime);
     }
 
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     public function getStartTime()

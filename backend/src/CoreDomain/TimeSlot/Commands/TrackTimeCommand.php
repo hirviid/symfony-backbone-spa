@@ -13,6 +13,11 @@ use Hirviid\DDD\Commands\CommandInterface;
 class TrackTimeCommand implements CommandInterface
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var \DateTime
      */
     public $startedAt;

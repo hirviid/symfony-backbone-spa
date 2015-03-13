@@ -32,6 +32,7 @@ class TrackTimeCommandHandler implements CommandHandlerInterface
 
         $timeSlot = TimeSlot::track(
             new TimeSlotId(trim(self::GUID(), '{}')),
+            $command->description,
             new \DateTime($command->startedAt),
             new \DateTime($command->stoppedAt)
         );

@@ -42,10 +42,10 @@ class YamlTimeSlotRepositoryTest extends TestCase
     protected function addTimeSlots()
     {
         $this->repository->add(
-            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D23'), new \DateTime('2015-01-01 09:00'), new \DateTime('2015-01-01 10:00'))
+            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D23'), 'task1', new \DateTime('2015-01-01 09:00'), new \DateTime('2015-01-01 10:00'))
         );
         $this->repository->add(
-            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D44'), new \DateTime('2015-01-01 10:00'), new \DateTime('2015-01-01 10:45'))
+            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D44'), 'task2', new \DateTime('2015-01-01 10:00'), new \DateTime('2015-01-01 10:45'))
         );
     }
 
@@ -120,11 +120,11 @@ YAML;
         $timeSlots = $this->repository->findAll();
         $this->assertEquals(
             $timeSlots[0],
-            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D23'), new \DateTime('2015-01-01 09:00'), new \DateTime('2015-01-01 10:00'))
+            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D23'), 'task1', new \DateTime('2015-01-01 09:00'), new \DateTime('2015-01-01 10:00'))
         );
         $this->assertEquals(
             $timeSlots[1],
-            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D44'), new \DateTime('2015-01-01 10:00'), new \DateTime('2015-01-01 10:45'))
+            TimeSlot::track(new TimeSlotId('62A0CEB4-0403-4AA6-A6CD-1EE808AD4D44'), 'task2', new \DateTime('2015-01-01 10:00'), new \DateTime('2015-01-01 10:45'))
         );
     }
 }
